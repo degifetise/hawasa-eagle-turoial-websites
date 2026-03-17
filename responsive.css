@@ -1,0 +1,41 @@
+:root {
+  --top-bar-bg-color: #234;
+  --top-bar-txt-color: #fff;
+  --btn-bg-color: #4cafef;
+  --btn-txt-color: #fff;
+}
+body.dark {
+  --top-bar-bg-color: #111;
+  --top-bar-txt-color: #eee;
+  --btn-bg-color: #efc123;
+  --btn-txt-color: #111;
+}
+/* navbar responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--top-bar-bg-color);
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 200px;
+    padding: 2rem 1rem;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+  display: block;
+}
+
+/*hero section style*/
+.hero {
+flex-direction: column;
+}
+
+
+.about-container {
+flex-direction: column;
+}
+}
