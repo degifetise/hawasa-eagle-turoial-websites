@@ -147,6 +147,5 @@ nextBtn.addEventListener("click", () => {
 });
 
 const today = new Date();
-const p = document.querySelector(".day");
-p.textContent =
-  today.getFullYear() + " " + today.getMonth() + 1 + "" + " " + today.getDate();
+const p = document.querySelector("#year");
+p.textContent = today.getFullYear();

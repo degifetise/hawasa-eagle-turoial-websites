@@ -31,6 +31,9 @@ body.dark {
   .menu-toggle {
     display: block;
   }
+  .logo-img img {
+    height: 40px;
+  }
 
   /*hero section style*/
   .hero {

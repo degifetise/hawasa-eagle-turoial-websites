@@ -35,9 +35,15 @@ body.dark {
   z-index: 1000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.logo h2 {
-  color: var(--top-bar-txt-color);
-  margin: 0;
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+.logo .logo-img img {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
 }
 .nav-links {
   display: flex;
@@ -125,7 +131,7 @@ section.entry {
   justify-content: space-around;
   align-items: center;
   min-height: 90vh;
-  background: url("/img/hero.png") no-repeat center center/cover;
+  background: url("/img/logo.png") no-repeat center center/cover;
   color: var(--btn-txt-color);
   position: relative;
 }
@@ -144,7 +150,7 @@ section.entry {
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--btn-bg-color);
+  color: #fff;
 }
 .hero-content p {
   max-width: 100%;
@@ -605,7 +611,7 @@ blockquote i {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  background: var(--btn-txt-color);
+  background: var(--sec-bg);
   padding: 80px 20px 30px;
   color: var(--top-bar-txt-color);
 }
@@ -622,6 +628,9 @@ blockquote i {
 .footer-nav .nav-links {
   display: flex;
   flex-direction: column;
+}
+.footer-nav ul li {
+  list-style: none;
 }
 .footer-nav ul a {
   margin-bottom: 8px;
