@@ -8,21 +8,42 @@ eyeCare.addEventListener("click", () => {
   }
 });
 
-eyeCareIcon.querySelectorAll("span").forEach((p) => {
+/* eyeCareIcon.querySelectorAll("span").forEach((p) => {
   p.addEventListener("click", () => {
     if (p.textContent === "light") {
       document.body.classList.remove("dark");
-      eyeCare.querySelector("button").textContent =
-        `<i class="fas fa-moon"></i>`;
+      eyeCare.innerHTML = `<i class="fas fa-moon"></i>`;
     } else if (p.textContent === "dark") {
       document.body.classList.add("dark");
-      eyeCare.querySelector("button").textContent =
-        `<i class="fas fa-sun"></i>`;
+      eyeCare.innerHTML = `<i class="fas fa-sun"></i>`;
     }
-    eyeCare.style.display = "none";
+  });
+}); */
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+  document.body.classList.toggle("dark", savedTheme === "dark");
+} else {
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.body.classList.toggle("dark", systemDark);
+}
+
+const updateIcon = () => {
+  const isDark = document.body.classList.contains("dark");
+  eyeCare.innerHTML = `<i class="fas fa-${isDark ? "sun" : "moon"} "></i>`;
+};
+updateIcon();
+eyeCareIcon.querySelectorAll("span").forEach((p) => {
+  p.addEventListener("click", () => {
+    const isDark = (p.textContent === "dark");
+
+    document.body.classList.toggle("dark", isDark);
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateIcon();
   });
 });
-
 //navbar section //
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
@@ -30,7 +51,7 @@ menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 //observer animation //
-const navEl = navLinks.querySelectorAll(".nav-links a");
+const navEl = document.querySelectorAll(".nav-links a");
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -52,7 +73,7 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.1 },
 );
-document.querySelectorAll("section:not(:first-of-type)");
+
 document.querySelectorAll("section").forEach((sec) => {
   sec.classList.add("reveal");
   observer.observe(sec);
@@ -95,3 +116,37 @@ const animateCounters = (entries, observer) => {
 const statsObserver = new IntersectionObserver(animateCounters, options);
 
 statsObserver.observe(statsSection);
+
+//to make teacher card clickable for phone//
+
+const teacherCards = document.querySelectorAll(".teacher-card");
+
+teacherCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.add("flipped");
+  });
+});
+
+//students testimonials//
+
+const track = document.querySelector(".carousel-track");
+const prevBtn = document.querySelector(".carousal-btn.prev");
+const nextBtn = document.querySelector(".carousal-btn.next");
+let index = 0;
+const cards = document.querySelectorAll(".student-card");
+function showCard(i) {
+  track.style.transform = `translateX(-${i * 100}%)`;
+}
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + cards.length) % cards.length;
+  showCard(index);
+});
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % cards.length;
+  showCard(index);
+});
+
+const today = new Date();
+const p = document.querySelector(".day");
+p.textContent =
+  today.getFullYear() + " " + today.getMonth() + 1 + "" + " " + today.getDate();
