@@ -1,14 +1,16 @@
 :root {
-  --top-bar-bg-color: #234;
-  --top-bar-txt-color: #fff;
-  --btn-bg-color: #4cafef;
-  --btn-txt-color: #fff;
+  --top-bar-bg-color: #ffff;
+  --top-bar-txt-color: #1a1a1a;
+  --btn-bg-color: #2563eb;
+  --btn-txt-color: #ffffff;
+  --sec-bg: #f9fafb;
 }
 body.dark {
-  --top-bar-bg-color: #111;
-  --top-bar-txt-color: #eee;
-  --btn-bg-color: #efc123;
-  --btn-txt-color: #111;
+  --top-bar-bg-color: #0f172a;
+  --top-bar-txt-color: #e2e8f0;
+  --btn-bg-color: #38bdf8;
+  --btn-txt-color: #0f172a;
+  --sec-bg: #1e293b;
 }
 /* navbar responsiveness */
 @media (max-width: 768px) {
@@ -26,16 +28,87 @@ body.dark {
     display: flex;
   }
   .menu-toggle {
-  display: block;
-}
+    display: block;
+  }
 
-/*hero section style*/
-.hero {
-flex-direction: column;
-}
+  /*hero section style*/
+  .hero {
+    flex-direction: column;
+  }
+  .btn-primary {
+    padding: 6px 12px;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--btn-bg-color);
+  }
+  .about-container {
+    flex-direction: column;
+  }
+  .about-content {
+    margin-left: 0;
+    font-size: 0.6rem;
+  }
+  .about-highlight {
+    flex-direction: column;
+  }
+  /* //student section */
+  .student-section {
+    padding: 50px 15px;
+  }
+  .student-card {
+    padding: 15px;
+    overflow: hidden;
+  }
+  .student-card img {
+    width: 140px;
+    height: 140px;
+  }
+  .student-card h2 {
+    font-size: 1.2rem;
+  }
+  .student-card p {
+    font-size: 0.9rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .student-card blockquote {
+    font-size: 0.85rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  blockquote i {
+    font-size: 1.2rem;
+  }
+  .carousal-btn {
+    padding: 8px;
+  }
+  .carousal-btn.prev {
+    left: 10px;
+  }
+  .carousal-btn.next {
+    right: 10px;
+  }
 
-
-.about-container {
-flex-direction: column;
-}
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  .footer-nav .nav-links {
+    align-items: center;
+  }
+  .footer-content-info {
+    align-items: center;
+  }
 }
