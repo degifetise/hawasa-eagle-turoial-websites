@@ -19,14 +19,14 @@ body.dark {
     flex-direction: column;
     background: var(--top-bar-bg-color);
     position: absolute;
-    top: -100%;
+    top: 0;
     right: 0;
     width: 200px;
     padding: 2rem 1rem;
   }
   .nav-links.active {
     display: flex;
-    top: 60px;
+    top: 80px;
   }
   .menu-toggle {
     display: block;
