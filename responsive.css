@@ -19,7 +19,7 @@ body.dark {
     flex-direction: column;
     background: var(--top-bar-bg-color);
     position: absolute;
-    top: 0;
+    top: -100%;
     right: 0;
     width: 200px;
     padding: 2rem 1rem;
