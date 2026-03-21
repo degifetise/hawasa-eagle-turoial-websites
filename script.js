@@ -36,7 +36,7 @@ const updateIcon = () => {
 updateIcon();
 eyeCareIcon.querySelectorAll("span").forEach((p) => {
   p.addEventListener("click", () => {
-    const isDark = (p.textContent === "dark");
+    const isDark = p.textContent === "dark";
 
     document.body.classList.toggle("dark", isDark);
 
@@ -79,7 +79,7 @@ document.querySelectorAll("section").forEach((sec) => {
   observer.observe(sec);
 });
 
-/* //stats sectionn counter */
+/* //stats section counter */
 
 const counters = document.querySelectorAll(".counter");
 const statsSection = document.querySelector("#stats");
@@ -145,6 +145,46 @@ nextBtn.addEventListener("click", () => {
   index = (index + 1) % cards.length;
   showCard(index);
 });
+
+/* integrating Email.js for contact form */
+
+(function () {
+  emailjs.init("vu1yffoze79QCdAok");
+})();
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const messageBox = document.getElementById("form-message");
+    const loadingBar = document.getElementById("loading-bar");
+
+    messageBox.style.display = "none";
+    loadingBar.style.display = "block";
+    loadingBar.style.width = "30%";
+
+    emailjs.sendForm("service_q628bgu", "template_59j14p8", this).then(
+      function () {
+        loadingBar.style.width = "100%";
+        setTimeout(() => {
+          loadingBar.style.display = "none";
+          messageBox.textContent = "Message sent successfully!";
+          messageBox.className = "form-message success";
+          messageBox.style.display = "block";
+        }, 1000);
+      },
+      function (error) {
+        loadingBar.style.width = "100%";
+        setTimeout(() => {
+          loadingBar.style.display = "none";
+          messageBox.textContent = "Failed to send message: " + error.text;
+          messageBox.className = "form-message error";
+          messageBox.style.display = "block";
+        }, 500);
+      },
+    );
+  });
 
 const today = new Date();
 const p = document.querySelector("#year");

@@ -32,7 +32,7 @@
       <div class="top-right-bar">
         <div>
           <div class="eye-care">
-            <i class="fas fa-sun"></i>
+            <!-- <i class="fas fa-sun"></i> -->
           </div>
           <div class="eye-care-btn">
             <span>light</span>
@@ -321,11 +321,18 @@ spinners section number of techers, srudents, and course like when it entry is i
         <div class="contact-grid">
           <div class="contact-form">
             <h2 class="contact-title">Get in touch.!</h2>
-            <form>
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
-              <textarea placeholder="Your Message"></textarea>
-              <button type="submit" class="btn-secondary">Send MEssage.</button>
+            <form id="contact-form">
+<div class="select-title">
+<input type="text" name="contact_title" class="input" placeholder="please select title">
+</div>
+              <input type="text" placeholder="Your Name" name="user_name" required class="input" />
+              <input type="email" placeholder="Your Email" name="user_email" required  class="input"/>
+              <textarea placeholder="Your Message" name="message" class="input"></textarea>
+
+  <div id="loading-bar" class="loading-bar"></div>
+<div id="form-message" class="form-message"></div>
+
+              <button type="submit" class="btn-secondary">Send Message.</button>
             </form>
           </div>
 
@@ -385,6 +392,8 @@ spinners section number of techers, srudents, and course like when it entry is i
       </div>
     </footer>
 
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="/script.js"></script>
   </body>
 </html>

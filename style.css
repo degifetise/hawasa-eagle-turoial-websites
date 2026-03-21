@@ -7,6 +7,7 @@
 }
 body {
   padding-top: 60px;
+  overflow-x: hidden;
 }
 :root {
   --top-bar-bg-color: #ffff;
@@ -546,8 +547,13 @@ blockquote i {
   text-align: center;
   margin: 0 auto;
 }
-
-.contact-form input,
+.input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
 .contact-form textarea {
   padding: 12px;
   border: 1px solid #ccc;
@@ -561,6 +567,25 @@ blockquote i {
 }
 .contact-form textarea {
   resize: none;
+}
+.loading-bar {
+  width: 0;
+  height: 4px;
+  background: #007bff; 
+  transition: width 0.4s ease;
+  margin-top: 10px;
+  display: none; 
+}
+.form-message {
+margin-top: 12px;
+font-size: 14px;
+display: none;
+}
+.form-message.success {
+color: green;
+}
+.form-message.error {
+color: red;
 }
 .contact-form .btn-secondary {
   border: none;
